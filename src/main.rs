@@ -195,6 +195,7 @@ fn solver<'a> (
             return
         }
 
+        
 fn main() {
     
     let team_max_size = 8;
@@ -212,7 +213,12 @@ fn main() {
         team : Vec::<&Athlete>::new(),
     };
 
+    let timer = std::time::Instant::now();
+
     solver(&mut best_team, &mut current_team, &athletes, initial_budget , max_per_country);
 
+    let duration = timer.elapsed();
+
     best_team.print();
+    println!("{:?}",duration);
 }
