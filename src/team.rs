@@ -50,15 +50,14 @@ impl<'a> Team<'a>
     {
         for ath in &self.team
         {
-            println!("{}|{} {} {} {}",match ath.discipline {
+            println!("{:4} {:9} {:4} {:4} {:5}",ath.points, ath.name, match ath.discipline {
                 Discipline::C1M => "C1M",
                 Discipline::K1M => "K1M",
                 Discipline::C1W => "C1W",
                 Discipline::K1W => "K1W",
-            }, ath.name, ath.points, ath.country, ath.price);
+            }, ath.country, ath.price);
         }
-        println!("Total price: {}", &self.price());
-        println!("Total points: {}", &self.points());
+        println!("{:4}{:26}",&self.points(), &self.price());
     }
 
     pub fn at_least_1_in(&self, disc : Discipline) -> bool
